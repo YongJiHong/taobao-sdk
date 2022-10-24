@@ -1,0 +1,22 @@
+{
+    "name": "zuoziji/taobao-sdk",
+    "description": "淘宝客-PHP-sdk",
+    "keywords": ["taobao", "api", "top", "sdk"],
+    "authors": [
+        {
+            "name": "zuoziji",
+            "email": "413684580@qq.com"
+        }
+    ],
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "ext-curl": "^7.3"
+    },
+    "autoload": {
+        "files": [
+            "TopSdk.php"
+        ]
+    }
+}
