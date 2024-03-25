@@ -3,7 +3,7 @@
  * TOP API: taobao.tbk.dg.vegas.tlj.create request
  * 
  * @author auto create
- * @since 1.0, 2022.08.04
+ * @since 1.0, 2023.02.20
  */
 class TbkDgVegasTljCreateRequest
 {
@@ -13,7 +13,7 @@ class TbkDgVegasTljCreateRequest
 	private $adzoneId;
 	
 	/** 
-	 * CPS佣金类型
+	 * 已下线，后续不需要填写
 	 **/
 	private $campaignType;
 	

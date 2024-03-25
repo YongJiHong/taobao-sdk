@@ -1,85 +1,55 @@
 <?php
 
 /**
- * 共享字段 - 渠道或会员列表
+ * resultList
  * @author auto create
  */
 class MapData
 {
 	
 	/** 
-	 * 渠道独有 - 渠道昵称
+	 * 选品库信息
 	 **/
-	public $account_name;
+	public $favorites_info;
 	
 	/** 
-	 * 共享字段 - 备案日期
+	 * 商品基础信息
 	 **/
-	public $create_date;
+	public $item_basic_info;
 	
 	/** 
-	 * 淘宝客外部用户标记
+	 * 商品信息-淘宝客新商品id；使用说明参考《淘宝客新商品ID升级》白皮书：https://www.yuque.com/taobaolianmengguanfangxiaoer/zmig94/tfyt0pahmlpzu2ud
 	 **/
-	public $external_id;
+	public $item_id;
 	
 	/** 
-	 * 1-微信、2-微博、3-抖音、4-快手、5-QQ，0-其他
+	 * 预售信息
 	 **/
-	public $external_type;
+	public $presale_info;
 	
 	/** 
-	 * 渠道独有 - 媒体侧渠道备注信息
+	 * 价格促销信息
 	 **/
-	public $note;
+	public $price_promotion_info;
 	
 	/** 
-	 * 线下备案专属信息
+	 * 淘客推广信息
 	 **/
-	public $offline_info;
+	public $publish_info;
 	
 	/** 
-	 * 渠道独有 - 线下场景信息，1 - 门店，2- 学校，3 - 工厂，4 - 其他
+	 * 商品库范围信息
 	 **/
-	public $offline_scene;
+	public $scope_info;
 	
 	/** 
-	 * 渠道独有 - 线上场景信息，1 - 微信群，2- QQ群，3 - 其他
+	 * 天猫榜单信息
 	 **/
-	public $online_scene;
+	public $tmall_rank_info;
 	
 	/** 
-	 * 渠道独有 - 处罚状态
+	 * 前N件佣金信息-前N件佣金生效或预热时透出以下字段
 	 **/
-	public $punish_status;
-	
-	/** 
-	 * 渠道独有 - 渠道名称
-	 **/
-	public $real_name;
-	
-	/** 
-	 * 共享字段 - 备案场景：common（通用备案），etao（一淘备案），minietao（一淘小程序备案），offlineShop（线下门店备案），offlinePerson（线下个人备案）
-	 **/
-	public $relation_app;
-	
-	/** 
-	 * 渠道独有 - 渠道关系ID
-	 **/
-	public $relation_id;
-	
-	/** 
-	 * 共享字段 - 渠道/会员专属pid
-	 **/
-	public $root_pid;
-	
-	/** 
-	 * 共享字段 - 渠道/会员原始身份信息
-	 **/
-	public $rtag;
-	
-	/** 
-	 * 会员独有 - 会员运营ID
-	 **/
-	public $special_id;	
+	public $topn_info;	
 }
 ?>

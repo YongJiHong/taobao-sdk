@@ -3,7 +3,7 @@
  * TOP API: taobao.tmc.user.topics.get request
  * 
  * @author auto create
- * @since 1.0, 2022.10.22
+ * @since 1.0, 2024.03.25
  */
 class TmcUserTopicsGetRequest
 {

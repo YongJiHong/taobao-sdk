@@ -1,50 +1,35 @@
 <?php
 
 /**
- * 百亿补贴信息
+ * 前N件佣金信息-前N件佣金生效或预热时透出以下字段
  * @author auto create
  */
 class TopNInfoDTO
 {
 	
 	/** 
-	 * 百亿补贴品牌logo
+	 * 前N件佣金结束时间
 	 **/
-	public $bybt_brand_logo;
+	public $topn_end_time;
 	
 	/** 
-	 * 百亿补贴专属券面额，仅限百亿补贴场景透出
+	 * 前N件剩余库存
 	 **/
-	public $bybt_coupon_amount;
+	public $topn_quantity;
 	
 	/** 
-	 * 商品的百亿补贴开始时间
+	 * 前N件佣金率
 	 **/
-	public $bybt_end_time;
+	public $topn_rate;
 	
 	/** 
-	 * 百亿补贴商品特征标签，eg.今日发货、晚发补偿、限购一件等
+	 * 前N件佣金开始时间
 	 **/
-	public $bybt_item_tags;
+	public $topn_start_time;
 	
 	/** 
-	 * 全网对比参考价格
+	 * 前N件初始总库存
 	 **/
-	public $bybt_lowest_price;
-	
-	/** 
-	 * 百亿补贴白底图
-	 **/
-	public $bybt_pic_url;
-	
-	/** 
-	 * 百亿补贴页面实时价
-	 **/
-	public $bybt_show_price;
-	
-	/** 
-	 * 商品的百亿补贴结束时间
-	 **/
-	public $bybt_start_time;	
+	public $topn_total_count;	
 }
 ?>

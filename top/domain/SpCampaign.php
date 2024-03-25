@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 定向计划集合
+ * 定向计划集合-仅支持联系商务或运营小二申请定向计划合集字段权限
  * @author auto create
  */
 class SpCampaign

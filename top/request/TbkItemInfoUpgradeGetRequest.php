@@ -1,14 +1,14 @@
 <?php
 /**
- * TOP API: taobao.tbk.item.info.get request
+ * TOP API: taobao.tbk.item.info.upgrade.get request
  * 
  * @author auto create
- * @since 1.0, 2023.04.24
+ * @since 1.0, 2023.12.27
  */
-class TbkItemInfoGetRequest
+class TbkItemInfoUpgradeGetRequest
 {
 	/** 
-	 * 1-动态ID转链场景，2-消费者比价场景，3-商品库导购场景（不填默认为1）
+	 * 1-动态ID转链场景，2-消费者比价场景，3-商品库导购场景（不填默认为1）；场景id使用说明参考《淘宝客新商品ID升级》白皮书：https://www.yuque.com/taobaolianmengguanfangxiaoer/zmig94/tfyt0pahmlpzu2ud
 	 **/
 	private $bizSceneId;
 	
@@ -18,19 +18,14 @@ class TbkItemInfoGetRequest
 	private $ip;
 	
 	/** 
+	 * 商品ID。多个用","分割，一次最多查询20个
+	 **/
+	private $itemId;
+	
+	/** 
 	 * 商品库服务账户(场景id3权限对应的memberid）
 	 **/
 	private $manageItemPubId;
-	
-	/** 
-	 * 商品ID串，用,分割，最大40个
-	 **/
-	private $numIids;
-	
-	/** 
-	 * 链接形式：1：PC，2：无线，默认：１
-	 **/
-	private $platform;
 	
 	/** 
 	 * 1-自购省，2-推广赚（代理模式专属ID，代理模式必填，非代理模式不用填写该字段）
@@ -38,7 +33,7 @@ class TbkItemInfoGetRequest
 	private $promotionType;
 	
 	/** 
-	 * 渠道关系ID
+	 * 渠道关系ID，仅适用于渠道推广场景
 	 **/
 	private $relationId;
 	
@@ -66,6 +61,17 @@ class TbkItemInfoGetRequest
 		return $this->ip;
 	}
 
+	public function setItemId($itemId)
+	{
+		$this->itemId = $itemId;
+		$this->apiParas["item_id"] = $itemId;
+	}
+
+	public function getItemId()
+	{
+		return $this->itemId;
+	}
+
 	public function setManageItemPubId($manageItemPubId)
 	{
 		$this->manageItemPubId = $manageItemPubId;
@@ -75,28 +81,6 @@ class TbkItemInfoGetRequest
 	public function getManageItemPubId()
 	{
 		return $this->manageItemPubId;
-	}
-
-	public function setNumIids($numIids)
-	{
-		$this->numIids = $numIids;
-		$this->apiParas["num_iids"] = $numIids;
-	}
-
-	public function getNumIids()
-	{
-		return $this->numIids;
-	}
-
-	public function setPlatform($platform)
-	{
-		$this->platform = $platform;
-		$this->apiParas["platform"] = $platform;
-	}
-
-	public function getPlatform()
-	{
-		return $this->platform;
 	}
 
 	public function setPromotionType($promotionType)
@@ -123,7 +107,7 @@ class TbkItemInfoGetRequest
 
 	public function getApiMethodName()
 	{
-		return "taobao.tbk.item.info.get";
+		return "taobao.tbk.item.info.upgrade.get";
 	}
 	
 	public function getApiParas()
@@ -134,7 +118,7 @@ class TbkItemInfoGetRequest
 	public function check()
 	{
 		
-		RequestCheckUtil::checkNotNull($this->numIids,"numIids");
+		RequestCheckUtil::checkNotNull($this->itemId,"itemId");
 	}
 	
 	public function putOtherTextParam($key, $value) {

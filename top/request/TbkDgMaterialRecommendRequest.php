@@ -1,54 +1,44 @@
 <?php
 /**
- * TOP API: taobao.tbk.dg.optimus.material request
+ * TOP API: taobao.tbk.dg.material.recommend request
  * 
  * @author auto create
- * @since 1.0, 2022.09.20
+ * @since 1.0, 2023.12.27
  */
-class TbkDgOptimusMaterialRequest
+class TbkDgMaterialRecommendRequest
 {
 	/** 
-	 * mm_xxx_xxx_xxx的第三位
+	 * 推广位id，mm_xxx_xxx_12345678三段式的最后一段数字（登录pub.alimama.com推广管理-推广位管理中查询）
 	 **/
 	private $adzoneId;
 	
 	/** 
-	 * 内容专用-内容详情ID
-	 **/
-	private $contentId;
-	
-	/** 
-	 * 内容专用-内容渠道信息
-	 **/
-	private $contentSource;
-	
-	/** 
-	 * 智能匹配-设备号加密类型：MD5，类型为OAID时不传
+	 * 智能匹配-设备号加密类型：MD5；使用智能推荐请先签署协议https://pub.alimama.com/fourth/protocol/common.htm?key=hangye_laxin
 	 **/
 	private $deviceEncrypt;
 	
 	/** 
-	 * 智能匹配-设备号类型：IMEI，或者IDFA，或者UTDID（UTDID不支持MD5加密），或者OAID
+	 * 智能匹配-设备号类型：IMEI，或者IDFA，或者UTDID（UTDID不支持MD5加密），或者OAID；使用智能推荐请先签署协议https://pub.alimama.com/fourth/protocol/common.htm?key=hangye_laxin
 	 **/
 	private $deviceType;
 	
 	/** 
-	 * 智能匹配-设备号加密后的值（MD5加密需32位小写），类型为OAID时传原始OAID值
+	 * 智能匹配-设备号加密后的值（MD5加密需32位小写）；使用智能推荐请先签署协议https://pub.alimama.com/fourth/protocol/common.htm?key=hangye_laxin
 	 **/
 	private $deviceValue;
 	
 	/** 
-	 * 选品库投放id
+	 * 选品库收藏夹id，获取收藏夹id参考文档：https://mos.m.taobao.com/union/page_20230109_175050_176?spm=a219t._portal_v2_pages_promo_goods_index_htm.0.0.7c2a75a5H2ER3N
 	 **/
 	private $favoritesId;
 	
 	/** 
-	 * 商品ID，用于相似商品推荐
+	 * 淘宝客新商品ID；用于相似商品推荐（注意：使用相似商品推荐material_id=13256必传，并请先签署协议https://pub.alimama.com/fourth/protocol/common.htm?key=hangye_laxin)；另关于《淘宝客新商品ID升级》参考白皮书：https://www.yuque.com/taobaolianmengguanfangxiaoer/zmig94/tfyt0pahmlpzu2ud
 	 **/
 	private $itemId;
 	
 	/** 
-	 * 官方的物料Id(详细物料id见：https://market.m.taobao.com/app/qn/toutiao-new/index-pc.html#/detail/10628875?_k=gpov9a)
+	 * 官方提供的物料Id；可以通过taobao.tbk.optimus.tou.material.ids.get接口获取公开的物料id列表或查看物料id汇总贴：https://market.m.taobao.com/app/qn/toutiao-new/index-pc.html#/detail/10628875?_k=gpov9a
 	 **/
 	private $materialId;
 	
@@ -62,6 +52,21 @@ class TbkDgOptimusMaterialRequest
 	 **/
 	private $pageSize;
 	
+	/** 
+	 * 1-自购省，2-推广赚（代理模式专属ID，代理模式必填，非代理模式不用填写该字段）
+	 **/
+	private $promotionType;
+	
+	/** 
+	 * 渠道关系ID，仅适用于渠道推广场景
+	 **/
+	private $relationId;
+	
+	/** 
+	 * 会员运营ID
+	 **/
+	private $specialId;
+	
 	private $apiParas = array();
 	
 	public function setAdzoneId($adzoneId)
@@ -73,28 +78,6 @@ class TbkDgOptimusMaterialRequest
 	public function getAdzoneId()
 	{
 		return $this->adzoneId;
-	}
-
-	public function setContentId($contentId)
-	{
-		$this->contentId = $contentId;
-		$this->apiParas["content_id"] = $contentId;
-	}
-
-	public function getContentId()
-	{
-		return $this->contentId;
-	}
-
-	public function setContentSource($contentSource)
-	{
-		$this->contentSource = $contentSource;
-		$this->apiParas["content_source"] = $contentSource;
-	}
-
-	public function getContentSource()
-	{
-		return $this->contentSource;
 	}
 
 	public function setDeviceEncrypt($deviceEncrypt)
@@ -185,9 +168,42 @@ class TbkDgOptimusMaterialRequest
 		return $this->pageSize;
 	}
 
+	public function setPromotionType($promotionType)
+	{
+		$this->promotionType = $promotionType;
+		$this->apiParas["promotion_type"] = $promotionType;
+	}
+
+	public function getPromotionType()
+	{
+		return $this->promotionType;
+	}
+
+	public function setRelationId($relationId)
+	{
+		$this->relationId = $relationId;
+		$this->apiParas["relation_id"] = $relationId;
+	}
+
+	public function getRelationId()
+	{
+		return $this->relationId;
+	}
+
+	public function setSpecialId($specialId)
+	{
+		$this->specialId = $specialId;
+		$this->apiParas["special_id"] = $specialId;
+	}
+
+	public function getSpecialId()
+	{
+		return $this->specialId;
+	}
+
 	public function getApiMethodName()
 	{
-		return "taobao.tbk.dg.optimus.material";
+		return "taobao.tbk.dg.material.recommend";
 	}
 	
 	public function getApiParas()

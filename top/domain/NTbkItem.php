@@ -43,7 +43,7 @@ class NTbkItem
 	public $i_rfd_rate;
 	
 	/** 
-	 * 入参的商品ID或营销ID
+	 * 入参的（新）商品ID
 	 **/
 	public $input_num_iid;
 	
@@ -166,6 +166,11 @@ class NTbkItem
 	 * 活动价
 	 **/
 	public $sale_price;
+	
+	/** 
+	 * 卖家id
+	 **/
+	public $seller_id;
 	
 	/** 
 	 * 店铺dsr 评分
